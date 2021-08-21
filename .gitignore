@@ -15,3 +15,6 @@ venv.bak/
 # Django stuff:
 *.log
 *.pot
+
+# sqlite
+*sqlite3
