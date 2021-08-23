@@ -1,0 +1,236 @@
+Creating test database for alias 'default' ('test_app')...
+[36;1mOperations to perform:[0m
+[1m  Synchronize unmigrated apps: [0mmessages, rest_framework, staticfiles, user
+[1m  Apply all migrations: [0madmin, auth, authtoken, contenttypes, core, sessions
+[36;1mSynchronizing apps without migrations:[0m
+  Creating tables...
+    Running deferred SQL...
+[36;1mRunning migrations:[0m
+  Applying contenttypes.0001_initial...[32;1m OK[0m
+  Applying contenttypes.0002_remove_content_type_name...[32;1m OK[0m
+  Applying auth.0001_initial...[32;1m OK[0m
+  Applying auth.0002_alter_permission_name_max_length...[32;1m OK[0m
+  Applying auth.0003_alter_user_email_max_length...[32;1m OK[0m
+  Applying auth.0004_alter_user_username_opts...[32;1m OK[0m
+  Applying auth.0005_alter_user_last_login_null...[32;1m OK[0m
+  Applying auth.0006_require_contenttypes_0002...[32;1m OK[0m
+  Applying auth.0007_alter_validators_add_error_messages...[32;1m OK[0m
+  Applying auth.0008_alter_user_username_max_length...[32;1m OK[0m
+  Applying auth.0009_alter_user_last_name_max_length...[32;1m OK[0m
+  Applying auth.0010_alter_group_name_max_length...[32;1m OK[0m
+  Applying auth.0011_update_proxy_permissions...[32;1m OK[0m
+  Applying auth.0012_alter_user_first_name_max_length...[32;1m OK[0m
+  Applying core.0001_initial...[32;1m OK[0m
+  Applying admin.0001_initial...[32;1m OK[0m
+  Applying admin.0002_logentry_remove_auto_add...[32;1m OK[0m
+  Applying admin.0003_logentry_add_action_flag_choices...[32;1m OK[0m
+  Applying authtoken.0001_initial...[32;1m OK[0m
+  Applying authtoken.0002_auto_20160226_1747...[32;1m OK[0m
+  Applying authtoken.0003_tokenproxy...[32;1m OK[0m
+  Applying sessions.0001_initial...[32;1m OK[0m
+System check identified no issues (0 silenced).
+test_create_user_page (core.tests.test_admin.AdminSiteTest)
+Test that the create user page works ... ok
+test_user_change_page (core.tests.test_admin.AdminSiteTest)
+Test that the user edit page works ... ok
+test_users_listed (core.tests.test_admin.AdminSiteTest)
+Test that users are listed en user Page ... ok
+test_wait_for_db (core.tests.test_commands.CommandTest)
+Test waitting for db ... Waiting for database...
+Database unavailable, waiting 1 second...
+Database unavailable, waiting 1 second...
+Database unavailable, waiting 1 second...
+Database unavailable, waiting 1 second...
+Database unavailable, waiting 1 second...
+[32;1mDatabase available![0m
+ok
+test_wait_for_db_readys (core.tests.test_commands.CommandTest)
+Test waiting for db when db is available ... Waiting for database...
+[32;1mDatabase available![0m
+ok
+test_create_user_email_success (core.tests.test_models.ModelTests)
+Test creating a new user with an email is successful ... ok
+test_creating_new_super_user (core.tests.test_models.ModelTests)
+Test creating a new super user ... ok
+test_new_user_email_normalized (core.tests.test_models.ModelTests)
+Test the email for a new user is normalized ... ok
+test_new_user_invalid_email (core.tests.test_models.ModelTests)
+Test creating user with a invalid email raises error ... ok
+test_post_me_not_allowed (user.tests.test_user_api.PriveteUserAPITests)
+Test that POST is not allowed on me url ... ERROR
+test_retrieve_profile_success (user.tests.test_user_api.PriveteUserAPITests)
+Test retrieving profile for logged in used ... ERROR
+test_update_user_profile (user.tests.test_user_api.PriveteUserAPITests)
+Test updating the user profile for authenticated user ... ERROR
+test_create_token_for_user (user.tests.test_user_api.PublicUserAPITest)
+Testing that a token is created for the user ... ok
+test_create_token_invalid_credentials (user.tests.test_user_api.PublicUserAPITest)
+Test that token is not created if invalid credentials are given ... ok
+test_create_token_missing_field (user.tests.test_user_api.PublicUserAPITest)
+Test that email and password are required ... ok
+test_create_token_no_user (user.tests.test_user_api.PublicUserAPITest)
+Test that the tpken is not created if user doesn't exist ... ok
+test_create_valid_user_success (user.tests.test_user_api.PublicUserAPITest)
+Test creating user with valid payload is successful ... ok
+test_pasword_to_short (user.tests.test_user_api.PublicUserAPITest)
+Test that the password must be more than 5 characters ... ok
+test_retrieve_user_unauthorized (user.tests.test_user_api.PublicUserAPITest)
+Test that authentincation is required for users ... ERROR
+test_user_exist (user.tests.test_user_api.PublicUserAPITest)
+Test creating user that already exist = fails ... ok
+
+======================================================================
+ERROR: test_post_me_not_allowed (user.tests.test_user_api.PriveteUserAPITests)
+Test that POST is not allowed on me url
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/user/tests/test_user_api.py", line 142, in test_post_me_not_allowed
+    res = self.client.post(ME_URL, {})
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 295, in post
+    response = super().post(
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 209, in post
+    return self.generic('POST', path, data, content_type, **extra)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 233, in generic
+    return super().generic(
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 473, in generic
+    return self.request(**r)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 285, in request
+    return super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 237, in request
+    request = super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 719, in request
+    self.check_exception(response)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 580, in check_exception
+    raise exc_value
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 492, in dispatch
+    request = self.initialize_request(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 394, in initialize_request
+    authenticators=self.get_authenticators(),
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 272, in get_authenticators
+    return [auth() for auth in self.authentication_classes]
+TypeError: 'type' object is not iterable
+
+======================================================================
+ERROR: test_retrieve_profile_success (user.tests.test_user_api.PriveteUserAPITests)
+Test retrieving profile for logged in used
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/user/tests/test_user_api.py", line 132, in test_retrieve_profile_success
+    res = self.client.get(ME_URL)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 288, in get
+    response = super().get(path, data=data, **extra)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 205, in get
+    return self.generic('GET', path, **r)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 233, in generic
+    return super().generic(
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 473, in generic
+    return self.request(**r)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 285, in request
+    return super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 237, in request
+    request = super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 719, in request
+    self.check_exception(response)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 580, in check_exception
+    raise exc_value
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 492, in dispatch
+    request = self.initialize_request(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 394, in initialize_request
+    authenticators=self.get_authenticators(),
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 272, in get_authenticators
+    return [auth() for auth in self.authentication_classes]
+TypeError: 'type' object is not iterable
+
+======================================================================
+ERROR: test_update_user_profile (user.tests.test_user_api.PriveteUserAPITests)
+Test updating the user profile for authenticated user
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/user/tests/test_user_api.py", line 153, in test_update_user_profile
+    res = self.client.patch(ME_URL, payload)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 311, in patch
+    response = super().patch(
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 217, in patch
+    return self.generic('PATCH', path, data, content_type, **extra)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 233, in generic
+    return super().generic(
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 473, in generic
+    return self.request(**r)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 285, in request
+    return super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/test.py", line 237, in request
+    request = super().request(**kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 719, in request
+    self.check_exception(response)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 580, in check_exception
+    raise exc_value
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 492, in dispatch
+    request = self.initialize_request(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 394, in initialize_request
+    authenticators=self.get_authenticators(),
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 272, in get_authenticators
+    return [auth() for auth in self.authentication_classes]
+TypeError: 'type' object is not iterable
+
+======================================================================
+ERROR: test_retrieve_user_unauthorized (user.tests.test_user_api.PublicUserAPITest)
+Test that authentincation is required for users
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/app/user/tests/test_user_api.py", line 112, in test_retrieve_user_unauthorized
+    res = self.client.get(ME_URL)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 742, in get
+    response = super().get(path, data=data, secure=secure, **extra)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 396, in get
+    return self.generic('GET', path, secure=secure, **{
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 473, in generic
+    return self.request(**r)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 719, in request
+    self.check_exception(response)
+  File "/usr/local/lib/python3.8/site-packages/django/test/client.py", line 580, in check_exception
+    raise exc_value
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 492, in dispatch
+    request = self.initialize_request(request, *args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 394, in initialize_request
+    authenticators=self.get_authenticators(),
+  File "/usr/local/lib/python3.8/site-packages/rest_framework/views.py", line 272, in get_authenticators
+    return [auth() for auth in self.authentication_classes]
+TypeError: 'type' object is not iterable
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.760s
+
+FAILED (errors=4)
+Destroying test database for alias 'default' ('test_app')...
